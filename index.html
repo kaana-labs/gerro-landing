@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerro | Smart Meal Planning & Groceries</title>
+    <meta name="description" content="Gerro generates personalized weekly meal plans and automated grocery lists. Save time, eat better, and shop smarter.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- GLOBAL STYLES --- */
+        :root {
+            --primary: #4CAF50; /* Gerro Green */
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #f5f5f5;
+            --text-gray: #666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        .logo span { color: var(--primary); }
+
+        /* --- HERO SECTION (Split Screen) --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .sub-text {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        /* Waitlist Form */
+        .waitlist-form {
+            display: flex;
+            gap: 10px;
+            max-width: 400px;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: #43a047;
+        }
+
+        /* Phone Mockup Styling */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* CSS-Only Phone Frame (Looks great without an image) */
+        .phone-frame {
+            width: 300px;
+            height: 600px;
+            background-color: #f0f0f0; /* Fallback color */
+            border: 12px solid #333;
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* PLACEHOLDER: Remove this background when you add your image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-weight: 600;
+        }
+
+        /* Image styling - Uncomment below when you have your screenshot */
+        /* .phone-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        */
+
+        /* --- FEATURES GRID --- */
+        .features {
+            background-color: var(--gray);
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h3 { margin-bottom: 10px; font-size: 20px; }
+        p { color: var(--text-gray); font-size: 15px; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-gray);
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse; /* Puts image on top on mobile */
+                text-align: center;
+                padding: 40px 0;
+            }
+            
+            h1 { font-size: 36px; }
+            
+            .waitlist-form {
+                flex-direction: column;
+                margin: 0 auto;
+            }
+            
+            .phone-frame {
+                width: 260px;
+                height: 520px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="#" class="logo">Gerro<span>.</span></a>
+        </header>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Eat Smarter.<br>Shop Faster.</h1>
+                <p class="sub-text">
+                    Gerro automates your weekly meal planning and creates smart grocery lists instantly.
+                    Connects directly with Amazon Fresh & Instacart.
+                </p>
+                
+                <form class="waitlist-form" action="#" onsubmit="alert('Thanks for joining the waitlist!'); return false;">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="cta-button">Join Waitlist</button>
+                </form>
+                <p style="margin-top: 15px; font-size: 12px; color: #888;">
+                    Coming soon to iOS & Android.
+                </p>
+            </div>
+
+            <div class="hero-image">
+                <div class="phone-frame">
+                    APP SCREENSHOT HERE
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="icon">📅</span>
+                    <h3>Smart Meal Plans</h3>
+                    <p>Get personalized weekly meal plans based on your diet goals, budget, and taste preferences.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🛒</span>
+                    <h3>Auto Grocery List</h3>
+                    <p>Recipes automatically turn into organized shopping lists. Check off items or buy online in one tap.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">📦</span>
+                    <h3>Pantry Management</h3>
+                    <p>Track what you have at home so you never buy duplicates. Get alerts when essentials run low.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Gerro App. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="#" style="color:#666; text-decoration: none; margin: 0 10px;">Privacy Policy</a> | 
+                <a href="#" style="color:#666; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
